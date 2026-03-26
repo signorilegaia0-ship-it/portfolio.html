@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — Gaia Signorile</title>
+
+  <!-- Font Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+  :root {
+  --black: #111110;
+  --white: #f9f8f6;
+  --gray: #888884;
+  --light: #eeece8;
+  --accent: #000000;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem; /* 16px base, scalabile */
+  line-height: 1.7;
+  background: var(--white);
+  color: var(--black);
+}
+
+a { text-decoration: none; }
+
+img {
+  display: block;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3vw;
+  background: rgba(249,248,246,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--light);
+}
+
+nav .logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--black);
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+nav ul a {
+  color: var(--gray);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+nav ul a:hover { color: var(--black); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 5rem;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 5rem 3vw;
+  border-right: 1px solid var(--light);
+}
+
+.hero-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.hero-name em { font-style: italic; color: var(--accent); }
+
+.hero-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.hero-contacts p {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--gray);
+  margin-bottom: 0.25rem;
+}
+
+.hero-roles span {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--black);
+  color: var(--black);
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 5rem 3vw;
+  text-align: center;
+}
+
+.hero-bio {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2vw, 1.375rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--gray);
+  max-width: 420px;
+  margin: 0 auto 3rem;
+}
+
+.hero-meta p {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--gray);
+  text-align: center;
+}
+
+/* SEZIONI */
+section {
+  padding: 10vh 5vw;
+  border-top: 1px solid var(--light);
+}
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+/* FORMAZIONE / CAREER */
+.formazione-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.formazione-item p {
+  font-size: 1rem;
+  color: var(--black);
+  line-height: 1.5;
+}
+
+.formazione-item h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+/* WORKS GRID */
+.lavori-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.lavoro-card {
+  padding: 1.5rem;
+  background: var(--light);
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.lavoro-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { border-right: none; border-bottom: 1px solid var(--light); }
+  .hero-right { padding-top: 2rem; }
+}
+
+@media (max-width: 768px) {
+  nav ul { gap: 1rem; }
+  .hero-left, .hero-right { padding: 3rem 4vw; }
+  .hero-bio { font-size: 1.125rem; }
+  section { padding: 8vh 4vw; }
+}
+
+@media (max-width: 480px) {
+  nav { flex-direction: column; gap: 1rem; padding: 1rem 3vw; }
+  .hero-bio { font-size: 1rem; }
+  .hero-roles span { font-size: 0.65rem; padding: 0.25rem 0.5rem; }
+  .section-title { font-size: clamp(1.75rem, 6vw, 3rem); }
+  .lavori-grid { gap: 1rem; }
+}
+
+  
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo">Gaia Signorile</a>
+    <ul>
+      <li><a href="#formazione">Education</a></li>
+      <li><a href="#competenze">career</a></li>
+      <li><a href="#lavori">works</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+ <section class="hero">
+  <div class="hero-left">
+  <h1 class="hero-name">Gaia<br><em>Signorile</em></h1>
+    <div class="hero-contacts">
+      <p>EMAIL: signorilegaia0@gmail.com</p>
+      <p>Tel: +39 3920955961</p>
+    </div>
+    <div class="hero-roles">
+      <span>UI/UX Designer</span>
+      <span>AI Strategist</span>
+      <span>Social Media Manager</span>
+      <span>Web Developer</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <img src="foto.jpeg" alt="Gaia Signorile">
+      <p class="hero-bio">
+        I create UI/UX designs and have hands-on skills with the Adobe Suite, Microsoft Office, and programming languages such as C++, Python, Java, and HTML.
+      </p>
+      <div class="hero-meta">
+        <p><strong>born</strong> 23 March 2002 · Pesaro Urbino, IT</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- FORMAZIONE -->
+<section id="formazione">
+  <p class="section-label">education</p>
+  <h2 class="section-title">
+    Academic<br><em>background</em>
+  </h2>
+
+  <div class="formazione-grid">
+    <div class="formazione-item">
+      <p class="formazione-text">
+       High School Diploma in Graphic Design and Advertising — Liceo Scuola del Libro, Urbino
+      </p>
+    </div>
+    <div class="formazione-item">
+      <p class="formazione-text">
+        Advanced Diploma (EQF Level 5) in AI Strategy — ITS Marche, 
+      with skills in predictive analytics, back-end and front-end development, and market strategy.
+      </p>
+    </div>
+  </div>
+</section>
+<section id="esperienze">
+  <p class="section-label">career</p>
+  <h2 class="section-title">
+  career <br><em>path</em>
+  </h2>
+
+  <div class="formazione-grid">
+    <div class="formazione-item">
+      <p class="formazione-text">
+        1. Web Developer Freelance
+Development of responsive websites for small businesses using HTML, CSS, and basic JavaScript. Focus on performance optimization and user experience to ensure smooth navigation across all devices.
+2. UI/UX Designer
+Design of intuitive digital interfaces with a strong focus on user experience. Creation of wireframes, prototypes, and visual layouts using tools such as Figma and Adobe
+3. Graphic Designer — Adobe Suite
+Creation of visual materials for businesses and restaurants, including menus, brochures, and social media content, using Photoshop, Illustrator, and InDesign.   
+5. Junior AI Strategist
+Use of artificial intelligence tools to optimize creative and production workflows, applied to design, marketing, and digital development.
+</p>
+    </div>
+  <section id="lavori">
+  <p class="section-label">works</p>
+  <h2 class="section-title">
+    my<br><em>works</em>
+  </h2>
+
+  <div class="lavori-grid">
+    
+    <a href="https://www.linkedin.com" target="_blank" class="lavoro-card">
+      <h3>LinkedIn</h3>
+      <p>Scopri il mio profilo professionale</p>
+    </a>
+
+    
+  </div>
+</section>
+
+<style>
+  /* Spaziatura e colore testo nella sezione formazione */
+  #formazione {
+    padding: 100px 48px; /* distanza dal bordo della pagina */
+    border-top: 1px solid var(--light); /* linea sopra la sezione */
+  }
+
+  .formazione-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* colonna unica per PC e mobile */
+    gap: 16px; /* spazio tra i diplomi */
+    margin-top: 32px; /* spazio sotto il titolo Percorso accademico */
+  }
+
+  .formazione-item {
+    background: transparent; /* puoi mettere bianco se vuoi */
+  }
+
+  .formazione-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px; /* dimensione leggibile su PC e telefono */
+    color: #111110; /* testo nero */
+    line-height: 1.6; /* distanza tra le righe */
+  }
+</style>
+
+
+</body>
+</html>
