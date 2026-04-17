@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"/>
   <title>Portfolio — Gaia Signorile</title>
 
   <!-- Font Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" crossorigin="anonymous"/>
 
   <style>
   :root {
@@ -340,7 +342,7 @@ Use of artificial intelligence tools to optimize creative and production workflo
 
   <div class="lavori-grid">
     
-    <a href="https://www.linkedin.com" target="_blank" class="lavoro-card">
+    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="lavoro-card">
       <h3>LinkedIn</h3>
       <p>Scopri il mio profilo professionale</p>
     </a>
